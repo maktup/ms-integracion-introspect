@@ -12,9 +12,8 @@
 	<groupId>com.tdp.ms</groupId>
 	<artifactId>introspect</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>${project.groupId}:${project.artifactId}</name>
+	<name>ms-integracion-introspect</name>
 	<description>Template from Genesis Framework to build microservices</description>
-
 	<inceptionYear>2019</inceptionYear>
 
 	<organization>
