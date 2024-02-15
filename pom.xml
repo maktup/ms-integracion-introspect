@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.tdp.genesis</groupId>
+		<artifactId>parent-spring</artifactId>
+		<version>3.0.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.tdp.ms</groupId>
+	<artifactId>introspect</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>Template from Genesis Framework to build microservices</description>
+
+	<inceptionYear>2019</inceptionYear>
+
+	<organization>
+		<name>Telefonica del Peru</name>
+		<url>https://www.telefonica.com.pe/</url>
+	</organization>
+
+	<issueManagement>
+		<system>Jira</system>
+	</issueManagement>
+
+	<developers>
+		<developer>
+			<id>usuario</id>
+			<name>Nombre Apellido</name>
+			<email>usuario@email.com</email>
+			<organization>Telefonica del Peru</organization>
+			<organizationUrl>https://www.telefonica.com.pe/</organizationUrl>
+			<timezone>America/Lima</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<properties>
+		<spring-cloud.version>2022.0.0</spring-cloud.version>
+		<spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
+		<maven-pmd-plugin.version>3.19.0</maven-pmd-plugin.version>
+		<maven-project-info-reports-plugin.version>3.4.1</maven-project-info-reports-plugin.version>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+
+		<!-- Genesis Multiframework -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-spring-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-spring-web-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-spring-error-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-spring-openapi-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tdp.genesis</groupId>
+			<artifactId>genesis-spring-audit-starter</artifactId>
+		</dependency>
+
+		<!-- Provide Scope -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Test Scope -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Runtime Scope -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+
+		<!-- Springframework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webflux</artifactId>
+		</dependency>
+
+		<!-- Springframework spring-boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Code coverage -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Maven config -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<!-- Maven enforcer -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+
+			<!-- Maven analyzer -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>analyze</id>
+						<goals>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<failOnWarning>true</failOnWarning>
+							<outputXML>true</outputXML>
+							<ignoredUnusedDeclaredDependencies>
+								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-core:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-web-starter:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-openapi-starter:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-error-starter:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-audit-starter:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>jakarta.validation:jakarta.validation-api:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.projectlombok:lombok:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springdoc:springdoc-openapi-starter-webflux-ui:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-starter-actuator:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-starter-test:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-starter-webflux:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-devtools:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.cloud:spring-cloud-starter-sleuth:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>io.opentelemetry:opentelemetry-exporter-otlp-trace:jar::</ignoredUnusedDeclaredDependency>
+								<ignoredUnusedDeclaredDependency>org.springframework.cloud:spring-cloud-starter-config:jar::</ignoredUnusedDeclaredDependency>
+							</ignoredUnusedDeclaredDependencies>
+							<ignoredNonTestScopedDependencies>
+								<ignoredNonTestScopedDependency>com.tdp.genesis:genesis-core</ignoredNonTestScopedDependency>
+								<ignoredNonTestScopedDependency>org.springframework:spring-webflux</ignoredNonTestScopedDependency>
+							</ignoredNonTestScopedDependencies>
+						</configuration>
+					</execution>
+				</executions>
+
+			</plugin>
+
+			<!-- Checkstyle -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+			</plugin>
+
+			<!-- Static code analyse -->
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Git-commit-id -->
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+			</plugin>
+
+			<!-- Maven Jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+
+			<!-- Spring Maven Plugin -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${maven-project-info-reports-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${checkstyle.plugin.version}</version>
+				<configuration>
+					<configLocation>checkstyle.xml</configLocation>
+					<encoding>UTF-8</encoding>
+					<consoleOutput>true</consoleOutput>
+					<failsOnError>true</failsOnError>
+					<linkXRef>false</linkXRef>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${maven-pmd-plugin.version}</version>
+				<configuration>
+					<skipEmptyReport>false</skipEmptyReport>
+					<excludes>
+						<exclude>com/tdp/ms/*/model/thirdparty/**/*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>${spotbugs.plugin.version}</version>
+				<configuration>
+					<foo>bar</foo>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.plugin.version}</version>
+				<configuration>
+					<destFile>${project.basedir}/target/jacoco.exec</destFile>
+					<append>true</append>
+					<excludes>
+						<exclude>com/tdp/ms/*/model/thirdparty/**/*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
+</project>
